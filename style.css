@@ -60,7 +60,7 @@ h1{
 /* Buttons */
 .reset-btn,
 #new-btn {
-    margin-top: 0.1rem;
+    margin-top: 0.01rem;
     padding: 0.6rem 1.4rem;
     font-size: 1rem;
     border-radius: 8px;
