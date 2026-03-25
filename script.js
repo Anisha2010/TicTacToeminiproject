@@ -4,7 +4,11 @@ let newGameBtn=document.querySelector("#new-btn");
 let msgContainer=document.querySelector(".msg-container");
 let msg=document.querySelector("#msg");
 let count=0;
+let scoreX=0;
+let scoreO=0;
 
+let scoreXdisplay=document.querySelector("#score-x");
+let scoreOdisplay=document.querySelector("#score-o");
 let turnO = true;//playerOdd
 
 const winPattern=[
@@ -22,8 +26,8 @@ const resetGame=()=>{
     turnO=true;
     count=0;
     enableBoxes();
-    for(let box of boxes){
-    box.style.backgroundColor="#ffffc7";}
+    for(let box of boxes){//use for after reset the game bgcolor changed
+    box.style.backgroundColor="#1e293b";}
     msgContainer.classList.add("hide");
 }
 
@@ -66,15 +70,24 @@ const celebration=()=>{
     });
 };
 const showWinner=(winner)=>{
+    if(winner==="O"){
+        scoreO++;
+        scoreOdisplay.innerText=scoreO;
+    }
+    else if(winner==="X"){
+        scoreX++;
+        scoreXdisplay.innerText=scoreX;
+    }
     msg.innerText=`🎉Congratulations ,Winner is ${winner}🎉`;
-    msgContainer.classList.remove("hide");
+    msgContainer.classList.remove("hide");    
     disableBoxes();
     celebration();
 }
 const showDraw=()=>{
     msg.innerText="Game Draw 🤝";
-    box.style.backgroundColor="#ffffc7";
     msgContainer.classList.remove("hide");
+    for(let box of boxes){
+    box.style.backgroundColor="#1e293b";}
 }
 const checkWinner= () =>{
     for(let pattern of winPattern){
@@ -87,6 +100,7 @@ const checkWinner= () =>{
             if(pos1v=== pos2v && pos2v===pos3v){
                 // console.log("Winner",pos1v);
                 showWinner(pos1v);
+                return;
             }
         }
      }

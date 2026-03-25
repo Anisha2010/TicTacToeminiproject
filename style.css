@@ -1,92 +1,118 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body{
-    background-color:rgb(77, 153, 158);
+
+body {
+    background: #0f172a; /* dark blue */
+    font-family: 'Poppins', sans-serif;
     text-align: center;
-    height: 100%;
+    color: #e2e8f0;
 }
-.container{
-    height: 70vh;
+
+h1{
+    margin-top: 3vmin;
+}
+/* Center container */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+/* Game board */
+.game {
+    height: 62vmin;
+    width: 62vmin;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5vmin;
+    gap: 1vmin;
 }
-.game{
-    height: 60vmin;
-    width: 60vmin;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5vmin;
-}
-.box{
-    background-color: #ffffc7;
-    height: 18vmin;
-    width: 18vmin;
-    border-radius: 1rem;
+
+/* Boxes */
+.box {
+    height: 20vmin;
+    width: 20vmin;
+    border-radius: 12px;
     border: none;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+    background: #1e293b;
+    color: #38bdf8;
     font-size: 8vmin;
-    color: brown;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
-.reset-btn{
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color:black;
-    color: #ffffff;
-    border-radius: 1rem;
+
+/* Hover (subtle, not flashy) */
+.box:hover {
+    background: #334155;
+    transform: scale(1.05);
+}
+
+/* Click effect */
+.box:active {
+    transform: scale(0.95);
+}
+
+/* Buttons */
+.reset-btn,
+#new-btn {
+    margin-top: 0.1rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 8px;
     border: none;
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
-#new-btn{
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color:black;
-    color: #ffffff;
-    border-radius: 1rem;
-    border: none;
+
+/* Button hover */
+.reset-btn:hover,
+#new-btn:hover {
+    background: #c0432d;
 }
-#msg{
-    color: #ffffc7;
-    font-size: 8vmin;
-    animation: pop 0.8s ease infinite alternate;
+
+/* Message */
+#msg {
+    font-size: 6vmin;
+    font-weight: bold;
+    color: #22c55e;
 }
-@keyframes pop{
-    from{transform:scale(1);}
-    to{transform: scale(1.1);}
-}
-.msg-container{
-    height: 100vmin;
+
+/* Message container */
+.msg-container {
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
-.hide{
+
+/* Hide */
+.hide {
     display: none;
 }
-h2{
-    color: #ed383b;
-    font-weight:bolder ;
+
+/* Heading */
+h2 {
+    color: #f87171;
+    margin-bottom: 10px;
 }
-.score{
-    background-color: black;
-    color: #ffffff;
-    width: 10vmin;
-    /* height: 5vmin; */
-    border-radius: 20px;
-    margin-top: 4px;
-    padding: .5rem;
-}
-#score-x{
-    margin-top: 4px ;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    
+
+/* Score */
+.score {
+    background: #1e293b;
+    color: #f1f5f9;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
 }
